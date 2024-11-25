@@ -30,7 +30,7 @@ RUN \
     && chmod -R 755 /app \
     && rm -rf /tmp/*
 
-COPY ./apps/sabnzbd/entrypoint.sh /entrypoint.sh
+COPY ./apps/nzbget/entrypoint.sh /entrypoint.sh
 
 USER nobody:nogroup
 WORKDIR /config
