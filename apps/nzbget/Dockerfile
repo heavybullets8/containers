@@ -5,7 +5,8 @@ ARG VERSION
 ARG CHANNEL
 
 ENV UMASK="0002" \
-    TZ="Etc/UTC"
+    TZ="Etc/UTC" \
+    PATH="/app:${PATH}"
 
 USER root
 WORKDIR /app
