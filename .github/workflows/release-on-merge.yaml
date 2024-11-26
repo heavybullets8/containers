@@ -5,7 +5,7 @@ name: Release on Merge
 
 concurrency:
   group: container-release
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 on:
   push:
