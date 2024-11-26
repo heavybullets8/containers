@@ -4,6 +4,7 @@ to edit this file, instead edit its template at: ./scripts/templates/README.md.j
 -->
 <div align="center">
 
+**This repository is a detached fork of the upstream repo: [onedr0p/containers](https://github.com/onedr0p/containers)**
 
 ## Containers
 
@@ -13,51 +14,47 @@ _An opinionated collection of container images_
 
 <div align="center">
 
-![GitHub Repo stars](https://img.shields.io/github/stars/onedr0p/containers?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/onedr0p/containers?style=for-the-badge)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/onedr0p/containers/release-scheduled.yaml?style=for-the-badge&label=Scheduled%20Release)
-
 </div>
 
-Welcome to my container images, if looking for a container start by [browsing the GitHub Packages page for this repo's packages](https://github.com/onedr0p?tab=packages&repo_name=containers).
+Welcome to my container images. If you're looking for a container, start by [browsing the GitHub Packages page for this repo's packages](https://github.com/Heavybullets8?tab=packages&repo_name=containers).
 
-## Mission statement
+## Mission Statement
 
 The goal of this project is to support [semantically versioned](https://semver.org/), [rootless](https://rootlesscontaine.rs/), and [multiple architecture](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/) containers for various applications.
 
-It also adheres to a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle), logging to stdout, [one process per container](https://testdriven.io/tips/59de3279-4a2d-4556-9cd0-b444249ed31e/), no [s6-overlay](https://github.com/just-containers/s6-overlay) and all images are built on top of [Alpine](https://hub.docker.com/_/alpine) or [Ubuntu](https://hub.docker.com/_/ubuntu).
+It also adheres to a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle), logging to stdout, [one process per container](https://testdriven.io/tips/59de3279-4a2d-4556-9cd0-b444249ed31e/), no [s6-overlay](https://github.com/just-containers/s6-overlay), and all images are built on top of [Alpine](https://hub.docker.com/_/alpine) or [Ubuntu](https://hub.docker.com/_/ubuntu).
 
-## Tag immutability
+## Tag Immutability
 
-The containers built here do not use immutable tags, as least not in the more common way you have seen from [linuxserver.io](https://fleet.linuxserver.io/) or [Bitnami](https://bitnami.com/stacks/containers).
+The containers built here do not use immutable tags, at least not in the more common way you have seen from [linuxserver.io](https://fleet.linuxserver.io/) or [Bitnami](https://bitnami.com/stacks/containers).
 
-We do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag we instead insist on pinning to the sha256 digest of the image, while this is not as pretty it is just as functional in making the images immutable.
+We do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag, we instead insist on pinning to the sha256 digest of the image. While this is not as pretty, it is just as functional in making the images immutable.
 
-| Container                                          | Immutable |
-|----------------------------------------------------|-----------|
-| `ghcr.io/onedr0p/sonarr:rolling`                   | ❌         |
-| `ghcr.io/onedr0p/sonarr:3.0.8.1507`                | ❌         |
-| `ghcr.io/onedr0p/sonarr:rolling@sha256:8053...`    | ✅         |
-| `ghcr.io/onedr0p/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
+| Container                                                | Immutable |
+|----------------------------------------------------------|-----------|
+| `ghcr.io/Heavybullets8/nzbget:rolling`                   | ❌        |
+| `ghcr.io/Heavybullets8/nzbget:24.4`                      | ❌        |
+| `ghcr.io/Heavybullets8/nzbget:rolling@sha256:3527...`    | ✅        |
+| `ghcr.io/Heavybullets8/nzbget:24.4@sha256:3527...`       | ✅        |
 
 _If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._
 
 ## Rootless
 
-To run these containers as non-root make sure you update your configuration to the user and group you want.
+To run these containers as non-root, make sure you update your configuration to the user and group you want.
 
-### Docker compose
+### Docker Compose
 
 ```yaml
 networks:
-  sonarr:
-    name: sonarr
+  nzbget:
+    name: nzbget
     external: true
 services:
-  sonarr:
-    image: ghcr.io/onedr0p/sonarr:3.0.8.1507
-    container_name: sonarr
-    user: 65534:65534
+  nzbget:
+    image: ghcr.io/Heavybullets8/nzbget:24.4
+    container_name: nzbget
+    user: 568:568
     # ...
 ```
 
@@ -67,7 +64,7 @@ services:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sonarr
+  name: nzbget
 # ...
 spec:
   # ...
@@ -76,9 +73,9 @@ spec:
     spec:
       # ...
       securityContext:
-        runAsUser: 65534
-        runAsGroup: 65534
-        fsGroup: 65534
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
 # ...
 ```
@@ -107,20 +104,9 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
-[nzbget](https://github.com/Heavybullets8/pkgs/container/nzbget) | stable | ghcr.io/Heavybullets8/nzbget
+[nzbget](https://github.com/Heavybullets8/containers/pkgs/container/nzbget) | stable | ghcr.io/Heavybullets8/nzbget
 
-
-## Deprecations
-
-Containers here can be **deprecated** at any point, this could be for any reason described below.
-
-1. The upstream application is **no longer actively developed**
-2. The upstream application has an **official upstream container** that follows closely to the mission statement described here
-3. The upstream application has been **replaced with a better alternative**
-4. The **maintenance burden** of keeping the container here **is too bothersome**
-
-**Note**: Deprecated containers will remained published to this repo for 6 months after which they will be pruned.
 
 ## Credits
 
-A lot of inspiration and ideas are thanks to the hard work of [hotio.dev](https://hotio.dev/) and [linuxserver.io](https://www.linuxserver.io/) contributors.
+All credit goes to [onedr0p](https://github.com/onedr0p), [bjw-s](https://github.com/bjw-s), and all of the other contributors to the upstream project.
