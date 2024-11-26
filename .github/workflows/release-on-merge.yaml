@@ -2,6 +2,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Release on Merge
 
+permissions:
+  contents: read
+  packages: write
+
 concurrency:
   group: container-release
   cancel-in-progress: false
