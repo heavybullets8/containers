@@ -4,11 +4,11 @@
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
-    "github>onedr0p/containers//.renovate/autoMerge.json5",
-    "github>onedr0p/containers//.renovate/customDatasources.json5",
-    "github>onedr0p/containers//.renovate/customManagers.json5",
-    "github>onedr0p/containers//.renovate/labels.json5",
-    "github>onedr0p/containers//.renovate/semanticCommits.json5",
+    "github>heavybullets8/containers//.renovate/autoMerge.json5",
+    "github>heavybullets8/containers//.renovate/customDatasources.json5",
+    "github>heavybullets8/containers//.renovate/customManagers.json5",
+    "github>heavybullets8/containers//.renovate/labels.json5",
+    "github>heavybullets8/containers//.renovate/semanticCommits.json5",
     ":automergeBranch",
     ":dependencyDashboard",
     ":disableRateLimiting",
@@ -16,8 +16,5 @@
     ":timezone(America/Denver)",
   ],
   dependencyDashboardTitle: "Renovate Dashboard 🤖",
-  suppressNotifications: [
-    "prEditedNotification",
-    "prIgnoreNotification"
-  ],
+  suppressNotifications: ["prEditedNotification", "prIgnoreNotification"],
 }
