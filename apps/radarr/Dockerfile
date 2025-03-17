@@ -7,8 +7,8 @@ ARG VERSION
 ENV UMASK="0002" \
     TZ="Etc/UTC"
 
-ENV \
-    DOTNET_EnableDiagnostics="0"
+ENV DOTNET_EnableDiagnostics=0 \
+    RADARR__UPDATE__BRANCH=main
 
 USER root
 WORKDIR /app
