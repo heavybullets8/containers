@@ -1,0 +1,4 @@
+---
+# renovate: datasource=github-releases depName=themepark-dev/theme.park
+version: 1.19.1
+name: theme-park

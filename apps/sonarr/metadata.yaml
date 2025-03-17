@@ -1,0 +1,4 @@
+---
+# renovate: datasource=github-releases depName=Sonarr/Sonarr
+version: 4.0.13.2932
+name: sonarr

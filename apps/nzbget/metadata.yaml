@@ -1,10 +1,4 @@
 ---
-app: nzbget
-semver: true
-channels:
-  - name: stable
-    platforms: ["linux/amd64", "linux/arm64"]
-    stable: true
-    tests:
-      enabled: true
-      type: web
+# renovate: datasource=github-releases depName=nzbgetcom/nzbget
+version: 24.7
+name: nzbget

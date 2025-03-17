@@ -1,0 +1,4 @@
+---
+# renovate: datasource=github-releases depName=Radarr/Radarr
+version: 5.19.3.9730
+name: radarr
