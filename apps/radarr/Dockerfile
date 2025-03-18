@@ -8,7 +8,7 @@ ENV UMASK="0002" \
     TZ="Etc/UTC"
 
 ENV DOTNET_EnableDiagnostics=0 \
-    RADARR__UPDATE__BRANCH=main
+    RADARR__UPDATE__BRANCH=master
 
 USER root
 WORKDIR /app
