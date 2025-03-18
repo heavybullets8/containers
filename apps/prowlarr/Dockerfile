@@ -8,7 +8,8 @@ ENV UMASK="0002" \
     TZ="Etc/UTC"
 
 ENV \
-    DOTNET_EnableDiagnostics="0"
+    DOTNET_EnableDiagnostics="0" \
+    PROWLARR__UPDATE__BRANCH=master
 
 USER root
 WORKDIR /app
