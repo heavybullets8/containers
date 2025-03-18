@@ -1,4 +1,4 @@
 ---
-# renovate: datasource=github-releases depName=Radarr/Radarr
+# renovate: datasource=custom.servarr depName=radarr versioning=loose
 version: 5.19.3.9730
 name: radarr
