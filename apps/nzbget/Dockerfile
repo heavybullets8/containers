@@ -18,11 +18,11 @@ RUN \
     ca-certificates \
     catatonit \
     coreutils \
-    curl 
+    curl
 
 RUN \
     curl -fsSL -o /tmp/nzbget.run \
-      "https://github.com/nzbgetcom/nzbget/releases/download/v${VERSION}/nzbget-${VERSION}-bin-linux.run" \
+    "https://github.com/nzbgetcom/nzbget/releases/download/v${VERSION}/nzbget-${VERSION}-bin-linux.run" \
     && \
     sh /tmp/nzbget.run --destdir /app \
     && \
@@ -31,7 +31,7 @@ RUN \
     && chmod -R 755 /app \
     && rm -rf /tmp/*
 
-COPY ./apps/nzbget/entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 
 USER nobody:nogroup
 WORKDIR /config
