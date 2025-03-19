@@ -9,6 +9,20 @@ now I add some additional applications that upstream has removed, or deprecated.
 For the *arr applications, upstream only offers `development` flavors, where I
 was wanting `stable`.
 
+## Deprecations
+
+Anything added to the upstream repo mentioned above, will be deprecated and
+removed from this repository, I do not really have a timeline for when that is
+going to happen. This is not a very "official" repositry. Which is why you
+should use the upstream repository whenver possible.
+
+The following applications are deprecated and WILL be removed:
+
+- nzbget (Available on
+  [home-operations/containers](https://github.com/home-operations/containers))
+- theme-park (Available on
+  [home-operations/containers](https://github.com/home-operations/containers))
+
 ## Tag Immutability
 
 The containers built here do not use immutable tags, at least not in the more
