@@ -27,12 +27,12 @@ prefix to the tag, we instead insist on pinning to the sha256 digest of the
 image. While this is not as pretty, it is just as functional in making the
 images immutable.
 
-| Container                                             | Immutable |
-| ----------------------------------------------------- | --------- |
-| `ghcr.io/Heavybullets8/nzbget:rolling`                | ❌        |
-| `ghcr.io/Heavybullets8/nzbget:24.4`                   | ❌        |
-| `ghcr.io/Heavybullets8/nzbget:rolling@sha256:3527...` | ✅        |
-| `ghcr.io/Heavybullets8/nzbget:24.4@sha256:3527...`    | ✅        |
+| Container                                                 | Immutable |
+| --------------------------------------------------------- | --------- |
+| `ghcr.io/Heavybullets8/sonarr:rolling`                    | ❌        |
+| `ghcr.io/Heavybullets8/sonarr:4.0.14.2939`                | ❌        |
+| `ghcr.io/Heavybullets8/sonarr:rolling@sha256:3527...`     | ✅        |
+| `ghcr.io/Heavybullets8/sonarr:4.0.14.2939@sha256:3527...` | ✅        |
 
 _If pinning an image to the sha256 digest, tools like
 [Renovate](https://github.com/renovatebot/renovate) support updating the
@@ -47,13 +47,13 @@ the user and group you want.
 
 ```yaml
 networks:
-  nzbget:
-    name: nzbget
+  sonarr:
+    name: sonarr
     external: true
 services:
-  nzbget:
-    image: ghcr.io/Heavybullets8/nzbget:24.4
-    container_name: nzbget
+  sonarr:
+    image: ghcr.io/heavybullets8/sonarr:4.0.14.2939
+    container_name: sonarr
     user: 568:568
     # ...
 ```
@@ -64,7 +64,7 @@ services:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nzbget
+  name: sonarr
 # ...
 spec:
   # ...
