@@ -7,6 +7,8 @@
     "github>heavybullets8/containers//.renovate/autoMerge.json5",
     "github>heavybullets8/containers//.renovate/labels.json5",
     "github>heavybullets8/containers//.renovate/semanticCommits.json5",
+    "github>heavybullets8/containers//.renovate/allowed.json5",
+    "github>heavybullets8/containers//.renovate/customManagers.json5",
     ":automergeBranch",
     ":dependencyDashboard",
     ":disableRateLimiting",
