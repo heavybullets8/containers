@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=github-releases depName=Prowlarr/Prowlarr versioning=loose
-  default = "1.35.1.5034"
+  default = "1.36.3.5071"
 }
 
 variable "SOURCE" {
