@@ -1,0 +1,22 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  customDatasources: {
+    "servarr-stable": {
+      defaultRegistryUrlTemplate:
+        "https://{{packageName}}.servarr.com/v1/update/master/changes?os=linux&runtime=netcore",
+      format: "json",
+      transformTemplates: [
+        '{"releases":[{"version": $[0].version}]}',
+      ],
+    },
+
+    "sonarr-stable": {
+      defaultRegistryUrlTemplate:
+        "https://services.sonarr.tv/v1/update/main/changes?os=linux&runtime=netcore&version=4.0",
+      format: "json",
+      transformTemplates: [
+        '{"releases":[{"version": $[0].version}]}',
+      ],
+    },
+  },
+}
