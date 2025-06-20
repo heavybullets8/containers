@@ -5,7 +5,7 @@ variable "APP" {
 }
 
 variable "VERSION" {
-  // renovate: datasource=github-releases depName=Sonarr/Sonarr versioning=loose
+  // renovate: datasource=custom.sonarr-stable depName=sonarr versioning=loose
   default = "4.0.14.2939"
 }
 

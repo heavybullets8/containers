@@ -9,5 +9,14 @@
         '{"releases":[{"version": $[0].version}]}',
       ],
     },
+
+    "sonarr-stable": {
+      defaultRegistryUrlTemplate:
+        "https://services.sonarr.tv/v1/update/main/changes?os=linux&runtime=netcore&version=4.0",
+      format: "json",
+      transformTemplates: [
+        '{"releases":[{"version": $[0].version}]}',
+      ],
+    },
   },
 }
