@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=custom.servarr-stable depName=prowlarr versioning=loose
-  default = "2.0.5.5160"
+  default = "2.1.5.5216"
 }
 
 variable "SOURCE" {
