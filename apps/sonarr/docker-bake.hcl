@@ -6,7 +6,7 @@ variable "APP" {
 
 variable "VERSION" {
   // renovate: datasource=custom.sonarr-stable depName=sonarr versioning=loose
-  default = "4.0.15.2941"
+  default = "4.0.16.2944"
 }
 
 variable "SOURCE" {
