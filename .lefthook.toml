@@ -1,0 +1,19 @@
+[pre-commit]
+parallel = true
+
+[pre-commit.commands.gofmt]
+glob = ["*.go"]
+run = "gofmt -l -w {staged_files}"
+stage_fixed = true
+
+[pre-commit.commands.hadolint]
+glob = ["**/Dockerfile"]
+run = "hadolint {staged_files}"
+
+[pre-commit.commands.shellcheck]
+glob = ["*.sh", ".tasks/*"]
+run = "shellcheck {staged_files}"
+
+[pre-commit.commands.zizmor]
+glob = [".github/workflows/*.yaml", ".github/workflows/*.yml"]
+run = "zizmor --offline {staged_files}"

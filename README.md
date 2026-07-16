@@ -38,6 +38,15 @@ _If pinning an image to the sha256 digest, tools like
 [Renovate](https://github.com/renovatebot/renovate) support updating the
 container on a digest or application version change._
 
+## Verifying Images
+
+All released images are signed with build provenance attestations. You can
+verify an image with the [GitHub CLI](https://cli.github.com/):
+
+```sh
+gh attestation verify --repo Heavybullets8/containers oci://ghcr.io/heavybullets8/sonarr:rolling
+```
+
 ## Rootless
 
 To run these containers as non-root, make sure you update your configuration to

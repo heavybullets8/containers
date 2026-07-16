@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+app="${1:?usage: remote-build <app> [release]}"
+release="${2:-false}"
+
+gh workflow run release.yaml -f app="$app" -f release="$release"

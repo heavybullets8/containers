@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(git rev-parse --show-toplevel)"
+
+find "$root/apps" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | while IFS= read -r app; do
+    yq -i ". += {\"app/$app\": [{\"changed-files\": [{\"any-glob-to-any-file\": [\"apps/$app/**\"]}]}]}" "$root/.github/labeler.yaml"
+done

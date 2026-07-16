@@ -9,10 +9,16 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{bash,py,sh}]
-indent_style = space
+[*.md]
 indent_size = 4
+trim_trailing_whitespace = false
 
 [Dockerfile]
-indent_style = space
+indent_size = 4
+
+[{*.sh,*.bash}]
+indent_size = 4
+
+[{*.go,go.mod,go.sum}]
+indent_style = tab
 indent_size = 4

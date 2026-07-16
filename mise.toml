@@ -1,6 +1,18 @@
+[settings]
+experimental = true
+
+[env]
+_.path = "{{config_root}}/.tasks"
+
 [tools]
-"aqua:cli/cli" = "2.96.0"
-"aqua:go-task/task" = "3.52.0"
-"aqua:GoogleContainerTools/container-structure-test" = "1.22.1"
-"aqua:jqlang/jq" = "1.7.1"
-"aqua:mikefarah/yq" = "4.53.3"
+gh = "2.96.0"
+go = "1.26.4"
+hadolint = "2.14.0"
+jq = "1.8.2"
+lefthook = "2.1.10"
+shellcheck = "0.11.0"
+yq = "4.53.3"
+zizmor = "1.27.0"
+
+[hooks]
+postinstall = ["lefthook install"]
