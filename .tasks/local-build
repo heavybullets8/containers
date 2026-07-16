@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+app="${1:?usage: local-build <app>}"
+root="$(git rev-parse --show-toplevel)"
+workdir="$(mktemp -d)"
+trap 'rm -rf "$workdir"' EXIT
+
+if [[ ! -f "$root/apps/$app/docker-bake.hcl" || ! -f "$root/apps/$app/Dockerfile" ]]; then
+    echo "error: no such app: apps/$app" >&2
+    exit 1
+fi
+
+rsync -a "$root/apps/$app/" "$workdir/"
+(cd "$workdir" && docker buildx bake --no-cache --metadata-file docker-bake.json --set '*.output=type=docker' --load)
+
+image="$(jq -r '."image-local"."image.name" | sub("^docker.io/library/"; "")' "$workdir/docker-bake.json")"
+cd "$root"
+TEST_IMAGE="$image" go test -v "./apps/$app/..."
+
+echo "To run this image: docker run --rm -it $image"
