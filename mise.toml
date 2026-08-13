@@ -6,7 +6,7 @@ _.path = "{{config_root}}/.tasks"
 
 [tools]
 gh = "2.97.0"
-go = "1.26.5"
+go = "1.26.6"
 hadolint = "2.14.0"
 jq = "1.8.2"
 lefthook = "2.1.10"
