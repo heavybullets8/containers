@@ -11,7 +11,7 @@ hadolint = "2.14.0"
 jq = "1.8.2"
 lefthook = "2.1.11"
 shellcheck = "0.11.0"
-yq = "4.53.3"
+yq = "4.53.6"
 zizmor = "1.29.0"
 
 [hooks]
