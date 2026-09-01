@@ -5,7 +5,7 @@ experimental = true
 _.path = "{{config_root}}/.tasks"
 
 [tools]
-gh = "2.98.0"
+gh = "2.99.0"
 go = "1.27.0"
 hadolint = "2.15.1"
 jq = "1.8.2"
