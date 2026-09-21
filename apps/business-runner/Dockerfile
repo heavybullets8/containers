@@ -16,7 +16,7 @@ RUN printf '%s\n' \
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
-    age poppler-utils postgresql-client-17 \
+    age lftp poppler-utils postgresql-client-17 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=aws-cli /usr/local/aws-cli/ /usr/local/aws-cli/
