@@ -21,6 +21,11 @@ getent group docker | grep -q ':123:'
 test -x /home/runner/run.sh
 test -d /home/runner/externals
 command -v sudo
-pdftotext -v`,
+pdftotext -v
+pg_dump --version | grep -E 'PostgreSQL\) 17\.'
+pg_restore --version | grep -E 'PostgreSQL\) 17\.'
+pg_isready --version
+aws --version
+age --version`,
 	)
 }
