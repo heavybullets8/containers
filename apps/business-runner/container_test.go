@@ -14,7 +14,8 @@ func TestRunnerContract(t *testing.T) {
 		nil,
 		"/bin/sh",
 		"-lc",
-		`test "$(id -u)" = 1001
+		`set -eu
+test "$(id -u)" = 1001
 test "$(id -g)" = 1001
 getent group docker | grep -q ':123:'
 test -x /home/runner/run.sh
