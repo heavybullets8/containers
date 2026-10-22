@@ -2,7 +2,7 @@
 
 FROM public.ecr.aws/aws-cli/aws-cli:2.38.1@sha256:733d5be1015825e4038c6016f3fa9954868ddee1f611b73be795a9cc2e706bfd AS aws-cli
 
-FROM ghcr.io/home-operations/actions-runner:2.338.0@sha256:7ece17219b5ce764fff8bd2206bf66a612580fdc82d84b0097fbe6f4e8729801
+FROM ghcr.io/home-operations/actions-runner:2.338.1@sha256:9011bec82009308072bb8677229181791f96bada721df8a91108290ad4a3fdc5
 
 USER root
 
