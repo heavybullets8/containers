@@ -30,3 +30,20 @@ aws --version
 age --version`,
 	)
 }
+
+func TestCProgram(t *testing.T) {
+	image := helpers.GetTestImage("ghcr.io/heavybullets8/business-runner:rolling")
+
+	helpers.RequireCommandSucceeds(t, image, nil, "/bin/sh", "-ec", `
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+cat > "$work/main.c" <<'C'
+#include <stdio.h>
+int main(void) {
+    return puts("hello") < 0;
+}
+C
+cc -Wall -Wextra -Werror "$work/main.c" -o "$work/hello"
+test "$("$work/hello")" = hello
+`)
+}
