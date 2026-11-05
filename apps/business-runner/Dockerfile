@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM public.ecr.aws/aws-cli/aws-cli:2.39.2@sha256:ed0f6b551cd77b6f34e240488739e4cb90b7534409d404a0c9a2be05c4690ca1 AS aws-cli
+FROM public.ecr.aws/aws-cli/aws-cli:2.39.4@sha256:d8790c3c6980589e660e9720b156557aebeba3dfffb000a8c87de3972ea757df AS aws-cli
 
 FROM ghcr.io/home-operations/actions-runner:2.338.2@sha256:2dd7caa094a425c041539447cb0e6ae63cda10b5242773764683b695b8fa5613
 
